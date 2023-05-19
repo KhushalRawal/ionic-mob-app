@@ -4,56 +4,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form [formGroup]="LoginForm" (ngSubmit)="formSubmit()">
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" formControlName="email" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="Password" formControlName="password" required></ion-input>
-    </ion-item>
-    <!-- Radio buttons -->
-    <!-- <ion-radio-group lines="full">
-      <ion-list-header>
-        <ion-label>Gender</ion-label>
-      </ion-list-header>
-      <ion-item>
-        <ion-label>Male</ion-label>
-        <ion-radio slot="start" value="male" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>Female</ion-label>
-        <ion-radio slot="start" value="female"></ion-radio>
-      </ion-item>
-    </ion-radio-group> -->
-    <!-- Checkboxes -->
-    <!-- <ion-list lines="full">
-      <ion-list-header>
-        <ion-label>Subjects</ion-label>
-      </ion-list-header>
-      <ion-item>
-        <ion-label>English</ion-label>
-        <ion-checkbox></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label>Maths</ion-label>
-        <ion-checkbox></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label>Science</ion-label>
-        <ion-checkbox></ion-checkbox>
-      </ion-item>
-      <ion-item>
-        <ion-label>History</ion-label>
-        <ion-checkbox></ion-checkbox>
-      </ion-item>
-    </ion-list> -->
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="medium" expand="block">Submit</ion-button>
-      </ion-col>
-    </ion-row>
+<ion-content class="form-page">
+  <form [formGroup]="LoginForm" validate (ngSubmit)="formSubmit()">
+    <ion-list>
+      <div class="item">
+        <ion-item lines="none">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email" required></ion-input>
+        </ion-item>
+        <span class="error" *ngIf="f.controls['email']?.errors?.['required']">
+          Email is required.
+        </span>
+        <span class="error" *ngIf="f.controls['email']?.errors?.['email']">
+          Please enter valid email.
+        </span>
+      </div>
+      <div class="item">
+        <ion-item lines="none">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="Password" formControlName="password" required></ion-input>
+        </ion-item>
+        <span class="error" *ngIf="f.controls['password']?.errors?.['required']">
+          Password is required.
+        </span>
+      </div>
+    </ion-list>
+    <ion-button type="submit" color="medium" expand="block">Submit</ion-button>
   </form>
 </ion-content>

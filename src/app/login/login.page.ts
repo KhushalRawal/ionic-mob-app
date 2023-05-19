@@ -31,4 +31,8 @@ export class LoginPage implements OnInit {
       this.router.navigateByUrl('/tabs/tab1')
     }
   }
+
+  get f() {
+    return this.LoginForm 
+  }
 }

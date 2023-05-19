@@ -1,0 +1,104 @@
+ion-content.form-page,
+.form {
+  > ion-list {
+    padding: 0;
+  }
+  
+  ion-list {
+    .error {
+      display: none;
+      font-size: 0.8em;
+    }
+    ion-item {
+      ion-label {
+        padding-left: 10px;
+      }
+      ion-input {
+        > input.native-input {
+          padding-left: 10px !important;
+        }
+        border-bottom: 1px solid var(--ion-color-primary-tint);
+      }
+    }
+  }
+  
+  form.ng-submitted ion-list {
+    ion-item.ion-invalid,
+    ion-item.custom-invalid {
+      ion-label {
+        color: var(--ion-color-danger) !important;
+      }
+      ion-input,
+      ion-textarea,
+      ion-select,
+      &.readonly > div {
+        border: 1px solid var(--ion-color-danger);
+        border-radius: 7px !important;
+      }
+    }
+    ion-item.ion-valid {
+      ion-label {
+        color: var(--ion-color-success);
+      }
+      ion-input,
+      ion-textarea,
+      ion-select,
+      &.readonly > div {
+        border: 1px solid var(--ion-color-success);
+        border-radius: 7px !important;
+      }
+    }
+    .error {
+      display: block;
+      margin-top: 5px;
+      padding-inline-start: 15px;
+      color: var(--ion-color-danger);
+    }
+  }
+
+  form ion-list {
+    ion-item.ion-dirty,
+    ion-item.ion-touched {
+      &.ion-invalid,
+      &.custom-invalid {
+        ion-label {
+          color: var(--ion-color-danger) !important;
+        }
+        ion-input,
+        ion-textarea,
+        ion-select,
+        &.readonly > div {
+          border: 1px solid var(--ion-color-danger);
+          border-radius: 7px !important;
+        }
+      }
+      &.ion-valid {
+        ion-label {
+          color: var(--ion-color-success);
+        }
+        ion-input,
+        ion-textarea,
+        ion-select,
+        &.readonly > div {
+          border: 1px solid var(--ion-color-success);
+          border-radius: 7px !important;
+        }
+      }
+      + .error {
+        display: block;
+        margin-top: 5px;
+        padding-inline-start: 15px;
+        color: var(--ion-color-danger);
+      }
+    }
+  }
+
+  form.ng-valid ion-button::part(native) {
+    background-color: var(--ion-color-success);
+  }
+
+  ion-button {
+    margin: 15px;
+  }
+
+}
