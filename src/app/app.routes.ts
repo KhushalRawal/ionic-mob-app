@@ -8,5 +8,9 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },  {
+    path: 'shared',
+    loadComponent: () => import('./shared/shared.page').then( m => m.SharedPage)
   },
+
 ];
