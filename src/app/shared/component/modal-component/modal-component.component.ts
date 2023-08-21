@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { UiService } from 'src/app/core/services/ui.service';
+import { BaseComponent } from '../base/base-component';
 
 
 @Component({
@@ -11,11 +12,17 @@ import { UiService } from 'src/app/core/services/ui.service';
   standalone:true,
   imports:[IonicModule, CommonModule]
 })
-export class ModalComponentComponent  implements OnInit {
+export class ModalComponentComponent extends BaseComponent implements OnInit {
+  @Input() data: any;
+  label = '';
 
-  constructor(private uiService:UiService) { }
+  constructor(private uiService:UiService) {
+    super();
+  }
 
-  ngOnInit():void {}
+  ngOnInit():void {
+    this.subs.add(()=>{})
+  }
 
   cancel(){
     this.uiService.dismissModal()
